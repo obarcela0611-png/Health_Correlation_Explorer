@@ -80,3 +80,71 @@ sns.regplot(
 
 st.pyplot(fig)
 ```
+## Script 7: Filter Participants by Sex and Age
+
+```python
+filtered_data = health_data.copy()
+
+if sex != "All":
+    filtered_data = filtered_data[filtered_data["sex"] == sex]
+
+filtered_data = filtered_data[
+    (filtered_data["age"] >= age_range[0]) &
+    (filtered_data["age"] <= age_range[1])
+]
+```
+
+This code filters participants based on the selected sex and age range.
+
+## Script 8: Select Variables for the Heatmap
+
+```python
+heatmap_variables = st.multiselect(
+    "Choose variables for the heatmap",
+    variables,
+    default=variables
+)
+
+selected_data = numeric_data[heatmap_variables]
+
+correlation = selected_data.corr(method=method)
+```
+
+This code allows users to select which health measurements appear in the correlation heatmap.
+
+## Script 9: Color Scatterplot Points by Blood Pressure
+
+```python
+filtered_data["BP Group"] = "Below 130"
+
+filtered_data.loc[
+    filtered_data["systolic_bp"] >= 130,
+    "BP Group"
+] = "130 or Higher"
+
+sns.scatterplot(
+    data=filtered_data,
+    x=x_variable,
+    y=y_variable,
+    hue="BP Group",
+    ax=ax
+)
+```
+
+This code separates participants into two color groups based on systolic blood pressure.
+
+## Script 10: Independently Verify Correlations
+
+```python
+import pandas as pd
+
+df = pd.read_csv("nhanes_health.csv")
+
+print(round(df["age"].corr(df["bmi"], method="pearson"), 3))
+
+print(round(df["age"].corr(df["bmi"], method="spearman"), 3))
+
+print(df[["age", "bmi"]].dropna().shape[0])
+```
+
+This code independently calculates Pearson and Spearman correlations and the sample size using pandas.

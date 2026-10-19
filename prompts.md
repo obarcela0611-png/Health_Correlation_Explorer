@@ -33,3 +33,18 @@ and calculate the Pearson correlation coefficient.
 
 Help me verify that my Streamlit application works correctly
 and document the results in verification.md.
+
+### Prompt 8
+How can I add different colors to my scatterplot based on whether a participant's systolic blood pressure is below 130 or 130 and higher?
+
+### Prompt 9
+Can you provide the complete updated app.py code that includes the blood pressure color groups, selectable heatmap variables, and sidebar filters?
+
+### Prompt 10
+How can I independently verify the Pearson and Spearman correlation coefficients and sample sizes using pandas?
+
+### Prompt 11
+How can I test whether the sex filter correctly updates the correlation coefficient and sample size?
+
+### Prompt 12
+How should I update my development plan to reflect the completed Streamlit application?

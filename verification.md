@@ -63,3 +63,14 @@ coefficients (R) and sample sizes (N), with the color
 scale fixed between -1 and 1.
 
 Result: PASS
+
+## Independent Pandas Verification
+
+The correlation results from the Streamlit application were compared with calculations performed independently using pandas.
+
+| Variable X | Variable Y | Method | App r | Pandas r | App N | Pandas N |
+|---|---|---|---|---|---|---|
+| age | bmi | Pearson | -0.012 | -0.012 | 4433 | 4433 |
+| age | bmi | Spearman | 0.015 | 0.015 | 4433 | 4433 |
+
+The results matched, confirming that the application correctly calculates the Pearson correlation coefficient and sample size for this variable pair.
